@@ -1,13 +1,8 @@
 import "./App.css";
+import { Home } from "./views/Home";
 
 function App() {
-    return (
-        <>
-            <div>
-                <h1 className="text-blue text-4xl">Hi world</h1>
-            </div>
-        </>
-    );
+    return <Home />;
 }
 
 export default App;
