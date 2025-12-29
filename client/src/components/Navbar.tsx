@@ -1,15 +1,15 @@
-import { Search } from "./Search";
-import { CartDropdown } from "./CartDropdown";
-import { ProfileDropdown } from "./ProfileDropdown";
-import { HeartIcon } from "@heroicons/react/24/outline";
+import Search from "./Search";
+import CartDropdown from "./CartDropdown";
+import ProfileDropdown from "./ProfileDropdown";
+import FavouritesDropdown from "./FavouritesDropdown";
+import RegionDropdown from "./RegionDropdown";
 import logo from "../assets/logo.svg";
-import lithuania from "../assets/lithuania.svg";
 
 interface NavbarProps {
     onSearch?: (query: string) => void;
 }
 
-export const Navbar = ({ onSearch }: NavbarProps) => {
+const Navbar = ({ onSearch }: NavbarProps) => {
     const handleSearch = (value: string) => {
         onSearch?.(value);
     };
@@ -18,21 +18,13 @@ export const Navbar = ({ onSearch }: NavbarProps) => {
         <div>
             <div className="container mx-auto px-4 py-4">
                 <div className="flex items-center justify-between gap-4">
-                    <img src={logo} alt="Logo" className="w-48 h-auto" />
+                    <img src={logo} alt="Logo" className="w-48 h-auto cursor-pointer" />
                     <div className="flex items-center gap-3 flex-1 max-w-5xl">
                         <Search onSearch={handleSearch} />
-                        <button className="flex items-center gap-2 text-white px-3">
-                            <img src={lithuania} alt="Lithuania" className="w-6 h-6 rounded-full" />
-                            <span className="text-sm font-semibold">Lithuanian | EUR</span>
-                        </button>
+                        <RegionDropdown />
                     </div>
                     <div className="flex items-center gap-4">
-                        <button
-                            aria-label="Wishlist"
-                            className="p-2 hover:bg-white/10 rounded-sm transition-colors"
-                        >
-                            <HeartIcon className="size-6 text-white" />
-                        </button>
+                        <FavouritesDropdown />
                         <CartDropdown />
                         <ProfileDropdown />
                     </div>
@@ -41,3 +33,5 @@ export const Navbar = ({ onSearch }: NavbarProps) => {
         </div>
     );
 };
+
+export default Navbar;

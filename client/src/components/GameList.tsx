@@ -5,7 +5,7 @@ interface GameListProps {
     games: Game[];
 }
 
-export const GameList = ({ games }: GameListProps) => {
+const GameList = ({ games }: GameListProps) => {
     return (
         <div className="w-full container mx-auto px-4 py-8">
             {games.length === 0 ? (
@@ -22,3 +22,5 @@ export const GameList = ({ games }: GameListProps) => {
         </div>
     );
 };
+
+export default GameList;

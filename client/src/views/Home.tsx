@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import { GameList } from "../components/GameList";
-import { Navbar } from "../components/Navbar";
-import { getList } from "../services/list";
+import GameList from "../components/GameList";
+import Navbar from "../components/Navbar";
+import getList from "../services/list";
 import { type Game } from "../types/Game";
 
-export const Home = () => {
+const Home = () => {
     const [searchQuery, setSearchQuery] = useState<string>("");
     const [games, setGames] = useState<Game[]>([]);
     const [count, setCount] = useState<number>(0);
@@ -65,3 +65,5 @@ export const Home = () => {
         </div>
     );
 };
+
+export default Home;

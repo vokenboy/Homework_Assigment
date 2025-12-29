@@ -60,7 +60,6 @@ export const searchGames = async (query?: string) => {
         const dbGames = await getAllGames();
 
         if (!dbGames || dbGames.length === 0) {
-            console.log("No games found in database");
             return [];
         }
 
@@ -91,13 +90,8 @@ export const searchGames = async (query?: string) => {
             .sort((a, b) => b.score - a.score)
             .map((item) => item.game);
 
-        if (filteredGames.length === 0) {
-            console.log(`No games found matching search query: "${searchQuery}"`);
-        }
-
         return filteredGames;
     } catch (error) {
-        console.error("Error in searchGames:", error);
         throw error;
     }
 };
@@ -107,13 +101,11 @@ export const getGames = async () => {
         const dbGames = await getAllGames();
 
         if (!dbGames || dbGames.length === 0) {
-            console.log("No games found in database");
             return [];
         }
 
         return dbGames.map(mapDbGameToGame);
     } catch (error) {
-        console.error("Error in getGames:", error);
         throw error;
     }
 };

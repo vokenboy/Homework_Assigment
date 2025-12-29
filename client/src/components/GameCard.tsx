@@ -3,9 +3,9 @@ import { InformationCircleIcon, HeartIcon, PlusIcon } from "@heroicons/react/24/
 
 export const GameCard = ({ game }: { game: Game }) => {
     return (
-        <div className="bg-card overflow-hidden transition-all duration-300 cursor-pointer border-3 border-card-border">
-            <div className="relative">
-                <img src={game.image} alt={game.title} className="w-full h-[420px] object-cover" />
+        <div className="bg-card overflow-hidden cursor-pointer border-3 border-card-border">
+            <div className="relative transition-all duration-300 hover:brightness-80">
+                <img src={game.image} alt={game.title} className="w-full h-[440px] object-cover" />
                 {game.hasCashback && (
                     <div className="absolute bottom-10 bg-info text-sm font-bold px-2 py-1.5 flex items-center gap-1 uppercase">
                         <PlusIcon className="size-4 translate-y-[-0.5px]" />

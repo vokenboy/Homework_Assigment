@@ -26,14 +26,10 @@ app.use("/", list);
 
 const startServer = async () => {
     try {
-        const isConnected = await testConnection();
-
         app.listen(PORT, () => {
             console.log(`Server running on port ${PORT}`);
-            console.log(`Database status: ${isConnected ? "Connected" : "Disconnected"}`);
         });
     } catch (error) {
-        console.error("Failed to start server:", error);
         process.exit(1);
     }
 };

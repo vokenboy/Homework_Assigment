@@ -7,7 +7,7 @@ interface SearchProps {
     placeholder?: string;
 }
 
-export const Search = ({ onSearch, placeholder = "Search for games..." }: SearchProps) => {
+const Search = ({ onSearch, placeholder = "Search for games..." }: SearchProps) => {
     const [query, setQuery] = useState("");
 
     const debouncedSearch = useMemo(
@@ -54,3 +54,5 @@ export const Search = ({ onSearch, placeholder = "Search for games..." }: Search
         </div>
     );
 };
+
+export default Search;

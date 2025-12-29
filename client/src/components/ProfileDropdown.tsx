@@ -1,11 +1,17 @@
 import user from "../assets/user.jpg";
 
-export const ProfileDropdown = () => {
+const ProfileDropdown = () => {
     return (
         <div className="relative">
-            <button className="flex items-center gap-2 text-black font-bold transition-colors">
-                <img src={user} alt="User" className="size-8 rounded-full" />
+            <button className="relative p-2">
+                <img
+                    src={user}
+                    alt="User"
+                    className="size-9 rounded-full border-2 border-white hover:border-accent"
+                />
             </button>
         </div>
     );
 };
+
+export default ProfileDropdown;
