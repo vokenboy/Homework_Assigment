@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "@fontsource/metropolis";
+import "@fontsource/metropolis/600.css";
 import "./index.css";
 import App from "./App.tsx";
 
