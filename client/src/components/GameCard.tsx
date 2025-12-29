@@ -8,7 +8,7 @@ export const GameCard = ({ game }: { game: Game }) => {
                 <img src={game.image} alt={game.title} className="w-full h-[440px] object-cover" />
                 {game.hasCashback && (
                     <div className="absolute bottom-10 bg-info text-sm font-bold px-2 py-1.5 flex items-center gap-1 uppercase">
-                        <PlusIcon className="size-4 translate-y-[-0.5px]" />
+                        <PlusIcon className="size-4 translate-y-[-1/2px]" />
                         <span>Cashback</span>
                     </div>
                 )}
@@ -53,7 +53,15 @@ export const GameCard = ({ game }: { game: Game }) => {
                     </div>
                     <div className="text-white text-2xl font-bold flex items-center gap-2">
                         €{game.currentPrice.toFixed(2)}
-                        <InformationCircleIcon className="text-gray-400 text-sm size-5" />
+                        <div className="relative group">
+                            <InformationCircleIcon className="text-gray-400 text-sm size-5 cursor-help" />
+                            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 bg-gray-900 py-2 px-3 z-10">
+                                <p className="text-sm text-white">
+                                    Price is not final. Service fee applies at checkout
+                                </p>
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-gray-900"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div

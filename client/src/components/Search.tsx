@@ -39,7 +39,7 @@ const Search = ({ onSearch, placeholder = "Search for games..." }: SearchProps) 
                     value={query}
                     onChange={handleInputChange}
                     placeholder={placeholder}
-                    className="w-full text-white placeholder-white pl-12 pr-12 py-3 border-2 outline-none focus:outline-none"
+                    className="w-full text-white placeholder-white pl-12 py-4 border-2 outline-none focus:outline-none"
                 />
                 {query && (
                     <button

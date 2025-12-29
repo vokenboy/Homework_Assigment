@@ -8,7 +8,6 @@ const pool = new Pool({
     port: parseInt(process.env.DB_PORT || "5432"),
 });
 
-// Test database connection
 pool.on("connect", () => {
     console.log("Database connected successfully");
 });
@@ -17,7 +16,6 @@ pool.on("error", (err) => {
     console.error("Unexpected database error:", err);
 });
 
-// Test connection on startup
 export const testConnection = async (): Promise<boolean> => {
     try {
         const client = await pool.connect();
