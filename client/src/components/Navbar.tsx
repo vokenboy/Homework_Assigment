@@ -5,8 +5,14 @@ import { HeartIcon } from "@heroicons/react/24/outline";
 import logo from "../assets/logo.svg";
 import lithuania from "../assets/lithuania.svg";
 
-export const Navbar = () => {
-    const handleSearch = (value: string) => {};
+interface NavbarProps {
+    onSearch?: (query: string) => void;
+}
+
+export const Navbar = ({ onSearch }: NavbarProps) => {
+    const handleSearch = (value: string) => {
+        onSearch?.(value);
+    };
 
     return (
         <div>
@@ -14,14 +20,12 @@ export const Navbar = () => {
                 <div className="flex items-center justify-between gap-4">
                     <img src={logo} alt="Logo" className="w-48 h-auto" />
                     <div className="flex items-center gap-3 flex-1 max-w-5xl">
-                        <Search onSearch={handleSearch} placeholder="Search for games..." />
-
+                        <Search onSearch={handleSearch} />
                         <button className="flex items-center gap-2 text-white px-3">
                             <img src={lithuania} alt="Lithuania" className="w-6 h-6 rounded-full" />
                             <span className="text-sm font-semibold">Lithuanian | EUR</span>
                         </button>
                     </div>
-
                     <div className="flex items-center gap-4">
                         <button
                             aria-label="Wishlist"
@@ -29,7 +33,6 @@ export const Navbar = () => {
                         >
                             <HeartIcon className="size-6 text-white" />
                         </button>
-
                         <CartDropdown />
                         <ProfileDropdown />
                     </div>

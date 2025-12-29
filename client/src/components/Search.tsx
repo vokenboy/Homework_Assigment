@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
+import debounce from "lodash/debounce";
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/solid";
 
 interface SearchProps {
@@ -6,17 +7,26 @@ interface SearchProps {
     placeholder?: string;
 }
 
-export const Search = ({ onSearch, placeholder = "Search..." }: SearchProps) => {
+export const Search = ({ onSearch, placeholder = "Search for games..." }: SearchProps) => {
     const [query, setQuery] = useState("");
+
+    const debouncedSearch = useMemo(
+        () =>
+            debounce((value: string) => {
+                onSearch?.(value);
+            }, 500),
+        [onSearch]
+    );
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setQuery(value);
-        onSearch?.(value);
+        debouncedSearch(value);
     };
 
     const handleClear = () => {
         setQuery("");
+        debouncedSearch.cancel();
         onSearch?.("");
     };
 

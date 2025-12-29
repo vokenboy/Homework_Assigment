@@ -1,71 +1,68 @@
-import { type Game } from "../types/index";
+import { type Game } from "../types/Game";
 import { InformationCircleIcon, HeartIcon, PlusIcon } from "@heroicons/react/24/outline";
 
-interface GameCardProps {
-    game: Game;
-}
-
-export const GameCard = ({ game }: GameCardProps) => {
+export const GameCard = ({ game }: { game: Game }) => {
     return (
         <div className="bg-card overflow-hidden transition-all duration-300 cursor-pointer border-3 border-card-border">
             <div className="relative">
-                <img src={game.image} alt={game.title} className="w-full h-[320px] object-cover" />
-
+                <img src={game.image} alt={game.title} className="w-full h-[420px] object-cover" />
                 {game.hasCashback && (
                     <div className="absolute bottom-10 bg-info text-sm font-bold px-2 py-1.5 flex items-center gap-1 uppercase">
                         <PlusIcon className="size-4 translate-y-[-0.5px]" />
                         <span>Cashback</span>
                     </div>
                 )}
-
                 {game.platformIcon && (
-                    <div className="absolute bottom-0 bg-black/50 backdrop-blur-md px-3 py-1 flex items-center justify-center w-full">
-                        <span className="text-white text-xs font-bold">{game.platformIcon}</span>
+                    <div className="absolute bottom-0 bg-black/50 backdrop-blur-md px-3 py-1 flex items-center justify-center w-full gap-2">
+                        <img src={game.platformIcon} alt={game.platform} className="size-4" />
+                        <span className="text-white text-xs font-bold">{game.platform}</span>
                     </div>
                 )}
             </div>
-
             <div className="p-4">
                 <div>
                     <h3 className="text-white font-bold text-sm mb-2 line-clamp-2 min-h-[40px]">
-                        {game.title}
+                        {game.title} {game.region}
                     </h3>
 
                     <div className="mb-3">
                         <span
-                            className={`text-xs font-bold text-lime-500 ${
-                                game.region === "GLOBAL"
+                            className={`text-lx font-bold text-lime-500 uppercase ${
+                                game.region === "Global"
                             }`}
                         >
                             {game.region}
                         </span>
                     </div>
                 </div>
-
                 <div>
                     <div className="flex items-center gap-2 mb-1">
                         <span className="text-gray-400 text-xs ">
                             From{" "}
-                            <span className="line-through font-bold">
-                                €{game.originalPrice.toFixed(2)}
+                            {game.discountPercentage > 0 && (
+                                <span className="line-through font-bold">
+                                    €{game.originalPrice.toFixed(2)}
+                                </span>
+                            )}
+                        </span>
+                        {game.discountPercentage > 0 && (
+                            <span className="text-green-500 text-xs font-bold">
+                                {game.discountPercentage}%
                             </span>
-                        </span>
-                        <span className="text-green-500 text-xs font-bold">
-                            {game.discountPercentage}%
-                        </span>
+                        )}
                     </div>
                     <div className="text-white text-2xl font-bold flex items-center gap-2">
                         €{game.currentPrice.toFixed(2)}
                         <InformationCircleIcon className="text-gray-400 text-sm size-5" />
                     </div>
                 </div>
-
-                {game.hasCashback && (
-                    <div className="text-green-500 text-xs font-bold mb-2">
-                        Cashback: €{game.cashback.toFixed(2)}
-                    </div>
-                )}
-
+                <div
+                    className={`text-green-500 text-xs font-bold mb-2 ${
+                        !game.hasCashback ? "invisible" : ""
+                    }`}
+                >
+                    Cashback: €{game.cashback.toFixed(2)}
+                </div>
                 <div className="flex items-center gap-1 text-muted text-sm">
                     <HeartIcon className="size-4" />
                     <span>{game.favorites}</span>
