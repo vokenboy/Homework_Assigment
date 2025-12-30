@@ -60,7 +60,6 @@ export const searchGames = async (query?: string) => {
         const dbGames = await getAllGames();
 
         if (!dbGames || dbGames.length === 0) {
-            console.log("No games found in database");
             return [];
         }
 
