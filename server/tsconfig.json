@@ -3,7 +3,7 @@
         "target": "ES2020",
         "module": "Node16",
         "lib": ["ES2020"],
-        "outDir": "./dest",
+        "outDir": "./dist",
         "rootDir": "./src",
         "strict": true,
         "esModuleInterop": true,
@@ -21,5 +21,5 @@
         "noFallthroughCasesInSwitch": true
     },
     "include": ["src/**/*"],
-    "exclude": ["node_modules", "dest"]
+    "exclude": ["node_modules", "dist"]
 }
