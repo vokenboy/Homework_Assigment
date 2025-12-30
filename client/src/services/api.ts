@@ -20,7 +20,7 @@ api.interceptors.response.use(
     },
     (error) => {
         if (error.code === "ECONNABORTED") {
-            const timeoutError = new Error("Request timeout. Please try again.");
+            const timeoutError = new Error("Server is asleep. Please try again.");
             return Promise.reject(timeoutError);
         }
         if (error.code === "ERR_NETWORK") {
