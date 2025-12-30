@@ -12,7 +12,7 @@ In this assigment I am using:
 
 ### Clone the project
 
-```
+```bash
 git clone https://github.com/vokenboy/Homework_Assigment
 ```
 
@@ -20,7 +20,7 @@ git clone https://github.com/vokenboy/Homework_Assigment
 
 Install dependencies
 
-```
+```bash
 npm i
 ```
 
@@ -32,7 +32,7 @@ VITE_API_BASE_URL=http://localhost:3000
 
 Run in development environment
 
-```
+```bash
 npm run dev
 ```
 
@@ -40,7 +40,7 @@ npm run dev
 
 Install dependencies
 
-```
+```bash
 npm i
 ```
 
@@ -59,7 +59,7 @@ PORT=3000
 
 Run in development enviroment
 
-```
+```bash
 npm run dev
 ```
 
@@ -67,6 +67,11 @@ npm run dev
 
 Run the containers
 
-```
+```bash
 docker-compose up -d
 ```
+
+You can use either container pgAdmin4 from localhost:8080 for DBMS
+Or your choise of other DBMS
+
+Make sure to use the provided homework_db.backup to load in the data
