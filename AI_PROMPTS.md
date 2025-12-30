@@ -35,3 +35,5 @@ In the backend implement error handling for edge cases, when database is not con
 use Axios interceptors in the frontend to catch errors. Make it so that Error appears in the Home page, not passed as param in the GameList component
 
 On the information circle add disclaimer, when hovered on it, to show something like: Price is not final. Service fee applies at checkout
+
+For the @client/src/components/FavouritesDropdown.tsx @client/src/components/CartDropdown.tsx @client/src/components/ProfileDropdown.tsx implement a functional dropdown. Don't display any data for them, for profile make it so that it only shows username "User", in cart show "No products added", for Favourites show "No favourites added".
