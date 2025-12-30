@@ -8,6 +8,12 @@ In this assigment I am using:
 -   Backend - Node.js + Express + Typescript
 -   Database - PostgrSQL
 
+You can view this on:
+Frontend - https://homework-assigment-fe.onrender.com
+Backend - https://homework-assigment-be.onrender.com
+
+Server might take 1-2 minutes to wake up.
+
 ## Installation
 
 ### Clone the project

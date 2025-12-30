@@ -14,7 +14,7 @@ app.use(
     })
 );
 
-app.get("/health", async (_req, res) => {
+app.get("/", async (_req, res) => {
     const isDbConnected = await testConnection();
     return res.json({
         status: "ok",

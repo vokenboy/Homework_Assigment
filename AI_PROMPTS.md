@@ -1,4 +1,4 @@
-I was using Claude Code CLI with Opus 4.5 model
+### I was using Claude Code CLI with Opus 4.5 model
 
 From this given screenshot, implement UI design in the frontend. Use tailwindcss for replicating the style, and components that will be used. Make sure to create components such as: Search.tsx, GameCard.tsx, GameList.tsx, CartDropdown.tsx, ProfileDropdown.tsx. Make a view Home.tsx. Mock games and their attributes to the GameList component.
 
